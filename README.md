@@ -16,6 +16,88 @@ La arquitectura se basa en tres componentes principales:
 
 El modelo configurado por defecto es **Mistral**, un LLM ligero y eficiente, ideal para entornos con recursos limitados.
 
+V ▶️ Instrucciones de uso
+
+1. Clonar este repositorio:
+   ```bash
+   git clone https://github.com/<tu-usuario>/<tu-repo>.git
+   cd <tu-repo>
+2. Levantar los servicios:
+   ```bash
+    docker compose up -d
+3. Acceder a la interfaz web:
+    http://localhost:3000
+
+## 🔧 Servicios
+Ollama
+
+- API: http://localhost:11434
+
+- Persistencia en volumen: ollama_data
+
+- Modelo inicial: mistral (se descarga automáticamente la primera vez).
+
+Comandos útiles:
+
+# Ingresar al contenedor
+docker exec -it ollama bash
+
+# Listar modelos instalados
+ollama list
+
+# Descargar otro modelo
+ollama pull llama2
+
+Open WebUI
+
+- Interfaz: http://localhost:3000
+
+- Conexiones configuradas:
+
+    - OLLAMA_BASE_URL=http://ollama:11434
+
+    - MEMORY_BACKEND=qdrant
+
+- Modelo por defecto: mistral
+
+- Configuración avanzada (variables de entorno adicionales):
+
+    - DEFAULT_MODEL → Modelo seleccionado al inicio.
+
+    - MEMORY_BACKEND → Motor de memoria (qdrant, sqlite, etc.).
+
+    - QDRANT_URL → Endpoint de Qdrant.
+
+Qdrant
+
+- API HTTP: http://localhost:6333
+
+- API gRPC: localhost:6334
+
+- Persistencia en volumen: qdrant_data
+
+## 🧪 Caso de uso: RAG (Retrieval Augmented Generation)
+
+1. Carga de documentos en Qdrant mediante embeddings generados por Ollama.
+
+2. Consulta semántica desde Open WebUI:
+
+    - El prompt del usuario se convierte en un embedding.
+
+    - Se busca en Qdrant el contexto más relevante.
+
+    - El contexto se concatena al prompt antes de pasarlo al modelo Mistral.
+
+3. Respuesta final generada con conocimiento aumentado.
+
+## 📚  Referencias
+
+Ollama Docs
+
+Open WebUI
+
+Qdrant Docs
+
 ---
 
 ## ⚙️ Arquitectura de la solución
