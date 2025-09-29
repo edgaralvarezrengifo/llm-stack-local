@@ -25,6 +25,7 @@ El modelo configurado por defecto es **Mistral**, un LLM ligero y eficiente, ide
 2. Levantar los servicios:
    ```bash
     docker compose up -d
+    docker exec ollama ollama pull mistral
 3. Acceder a la interfaz web:
     http://localhost:3000
 
@@ -35,7 +36,7 @@ Ollama
 
 - Persistencia en volumen: ollama_data
 
-- Modelo inicial: mistral (se descarga automáticamente la primera vez).
+- Modelo inicial: mistral.
 
 Comandos útiles:
 
