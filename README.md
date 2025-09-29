@@ -16,7 +16,7 @@ La arquitectura se basa en tres componentes principales:
 
 El modelo configurado por defecto es **Mistral**, un LLM ligero y eficiente, ideal para entornos con recursos limitados.
 
-V ▶️ Instrucciones de uso
+## ▶️ Instrucciones de uso
 
 1. Clonar este repositorio:
    ```bash
