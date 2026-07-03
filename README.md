@@ -91,6 +91,10 @@ Qdrant
 
 3. Respuesta final generada con conocimiento aumentado.
 
+## Pruebas no funcionales
+El script de las pruebas no funcionales realizadas para este proyecto se encuentra en el siguiente repositorio:
+https://github.com/edgaralvarezrengifo/llm-stack-local-tests
+
 ## 📚  Referencias
 
 Ollama Docs
